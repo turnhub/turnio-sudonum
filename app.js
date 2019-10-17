@@ -1,7 +1,6 @@
 const TurnIntegration = require("@turnio/integration");
 const request = require("request");
-
-console.log({ env: process.env });
+const debug = require("debug")("turn:sudonum");
 
 const app = new TurnIntegration(process.env.SECRET)
   .context("Language", "table", message => ({
@@ -20,8 +19,8 @@ const app = new TurnIntegration(process.env.SECRET)
         really: "yes"
       },
       callback: ({ message, option, payload: { really } }) => {
-        console.log({ message, option, really });
-        return request.post(
+        debug("Menu callback received");
+        request.post(
           "https://api.sudonum.com/v2/voice-call/",
           {
             headers: {
@@ -36,9 +35,10 @@ const app = new TurnIntegration(process.env.SECRET)
             }
           },
           function(err, httpResponse, body) {
-            console.log({ err, httpResponse, body });
+            debug(`Call to ${message.from} initiated`);
           }
         );
+        return { ok: "call initiated" };
       }
     }
   ])

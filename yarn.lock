@@ -2,21 +2,21 @@
 # yarn lockfile v1
 
 
+"@turnio/integration@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@turnio/integration/-/integration-1.0.3.tgz#5b41c4edef58ac936d728add9ce0cdf4078a5712"
+  integrity sha512-TQOt99HqQsWcoAenaiQeUuut06nzlVrWrHzMy9/hixLIszjH8V6nmpnxmytxRCfKhvwCwiz+bSASfhNou9HoNQ==
+  dependencies:
+    "@turnio/integration" "^1.0.0"
+    body-parser "^1.19.0"
+    debug "^4.1.1"
+    express "^4.17.1"
+
 "@turnio/integration@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@turnio/integration/-/integration-1.0.0.tgz#16725cd41d98a1ac45d84ef67d084a55f6ce4b50"
   integrity sha512-mEVweny4Jr2Cn3zE4H3TufrrLVihAZG1a3UqZU1mgZhpi4hXHT2sCjcwVERbxHleKPV2S/Qud2BWiLW1GwteHg==
   dependencies:
-    body-parser "^1.19.0"
-    debug "^4.1.1"
-    express "^4.17.1"
-
-"@turnio/integration@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@turnio/integration/-/integration-1.0.1.tgz#461cac557917771dbd1caf817141bd8dc2e88c31"
-  integrity sha512-zf9dubA+YriUeLFOg6GCeNN4GSpPRoMNx2mluzFCIokI9hvMlPcsHqoeRxn47eDB0aIy1cXL7zStnAkqH+K7/Q==
-  dependencies:
-    "@turnio/integration" "^1.0.0"
     body-parser "^1.19.0"
     debug "^4.1.1"
     express "^4.17.1"
@@ -444,6 +444,11 @@ mime@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 ms@2.0.0:
   version "2.0.0"

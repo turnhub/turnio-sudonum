@@ -6,24 +6,16 @@ const moment = require("moment");
 const callLog = {};
 
 const app = new TurnIntegration(process.env.SECRET)
-  .context("Phone Call", "table", ({ messages } = body) => {
-    if (messages.length == 0) {
-      return {
-        "Can be called": "Maybe",
-        "Last Called At": "Never"
-      };
-    } else {
-      const message = messages[0];
-      const lastCall = callLog[message.from];
-      return {
-        "Can be called?": message.from.startsWith("27") ? "Yes" : "No",
-        "Last Called At": lastCall
-          ? moment.duration(moment().diff(lastCall)).humanize()
-          : "Never"
-      };
-    }
+  .context("Phone Call", "table", ({ chat, messages } = body) => {
+    const lastCall = callLog[chat.owner];
+    return {
+      "Can be called?": message.from.startsWith("+27") ? "Yes" : "No",
+      "Last Called At": lastCall
+        ? moment.duration(moment().diff(lastCall)).humanize()
+        : "Never"
+    };
   })
-  .action(message => [
+  .action(({ chat, messages }) => [
     {
       description: "Set up a call",
       payload: {
@@ -47,7 +39,7 @@ const app = new TurnIntegration(process.env.SECRET)
           },
           function(err, httpResponse, body) {
             debug(`Call to ${message.from} initiated`);
-            callLog[message.from] = moment.now();
+            callLog[chat.owner] = moment.now();
           }
         );
         // Notify the frontend to refresh the context so we

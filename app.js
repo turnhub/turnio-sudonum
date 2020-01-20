@@ -8,6 +8,7 @@ const callLog = {};
 const app = new TurnIntegration(process.env.SECRET)
   .context("Phone Call", "table", ({ chat, messages } = body) => {
     const lastCall = callLog[chat.owner];
+    const message = messages[0];
     return {
       "Can be called?": message.from.startsWith("+27") ? "Yes" : "No",
       "Last Called At": lastCall

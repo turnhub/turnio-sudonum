@@ -45,7 +45,7 @@ const app = new TurnIntegration(process.env.SECRET)
           },
           function(err, httpResponse, body) {
             debug(`Call to ${message.from} initiated`);
-            callLog[chat.owner] = moment.now();
+            // callLog[chat.owner] = moment.now();
           }
         );
         // Notify the frontend to refresh the context so we

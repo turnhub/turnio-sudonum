@@ -9,11 +9,11 @@ const callLog = {};
 
 const app = new TurnIntegration(process.env.SECRET)
   .context("Phone Call", "table", ({ chat, messages } = body) => {
-    const lastCall = callLog[chat.owner];
     const recentInbounds = messages.filter(
       m => m._vnd.v1.direction == "inbound"
     );
     const lastInbound = recentInbounds[0];
+    const lastCall = callLog[lastInbound.from];
     return {
       "Can be called?": lastInbound.from.startsWith("27") ? "Yes" : "No",
       "Last Called At": lastCall
@@ -46,7 +46,7 @@ const app = new TurnIntegration(process.env.SECRET)
           function(err, httpResponse, body) {
             debug({ err, httpResponse, body });
             debug(`Call to ${message.from} initiated`);
-            // callLog[chat.owner] = moment.now();
+            callLog[message.from] = moment.now();
           }
         );
         // Notify the frontend to refresh the context so we

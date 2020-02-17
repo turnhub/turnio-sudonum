@@ -3,15 +3,19 @@ const request = require("request");
 const debug = require("debug")("turn:sudonum");
 const moment = require("moment");
 
+// this will likely always be empty if running
+// in a serverless environment
 const callLog = {};
 
 const app = new TurnIntegration(process.env.SECRET)
   .context("Phone Call", "table", ({ chat, messages } = body) => {
     const lastCall = callLog[chat.owner];
-    const message = messages.filter(m => m.direction == "inbound")[0];
-    debug("last message & messages", { message, messages });
+    const recentInbounds = messages.filter(
+      m => m._vnd.v1.direction == "inbound"
+    );
+    const lastInbound = recentIinbounds[0];
     return {
-      "Can be called?": message.from.startsWith("+27") ? "Yes" : "No",
+      "Can be called?": message.from.startsWith("27") ? "Yes" : "No",
       "Last Called At": lastCall
         ? moment.duration(moment().diff(lastCall)).humanize()
         : "Never"

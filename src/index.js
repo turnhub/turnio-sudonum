@@ -29,22 +29,23 @@ const app = new TurnIntegration(process.env.SECRET)
       },
       callback: ({ message, option, payload: { really } }, resp) => {
         debug("Menu callback received");
+        const form = {
+          caller_number: process.env.OPERATOR_NUMBER,
+          destination_number: message.from,
+          caller_clid: message.from,
+          features: "group_pickup_hunt",
+          destination_clid: process.env.CALL_FROM
+        };
         request.post(
           "https://api.sudonum.com/v2/voice-call/",
           {
             headers: {
               Authorization: `Token ${process.env.SUDONUM_API_TOKEN}`
             },
-            form: {
-              caller_number: process.env.OPERATOR_NUMBER,
-              destination_number: message.from,
-              caller_clid: message.from,
-              features: "group_pickup_hunt",
-              destination_clid: process.env.CALL_FROM
-            }
+            form
           },
           function(err, httpResponse, body) {
-            debug({ err, httpResponse, body });
+            debug({ form, body });
             debug(`Call to ${message.from} initiated`);
             callLog[message.from] = moment.now();
           }

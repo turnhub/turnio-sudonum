@@ -52,4 +52,4 @@ const app = new TurnIntegration(process.env.SECRET)
   ])
   .serve();
 
-module.exports = app;
+module.exports = { app };

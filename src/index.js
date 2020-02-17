@@ -15,7 +15,7 @@ const app = new TurnIntegration(process.env.SECRET)
     );
     const lastInbound = recentInbounds[0];
     return {
-      "Can be called?": message.from.startsWith("27") ? "Yes" : "No",
+      "Can be called?": lastInbound.from.startsWith("27") ? "Yes" : "No",
       "Last Called At": lastCall
         ? moment.duration(moment().diff(lastCall)).humanize()
         : "Never"

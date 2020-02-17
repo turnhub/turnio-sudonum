@@ -13,7 +13,7 @@ const app = new TurnIntegration(process.env.SECRET)
     const recentInbounds = messages.filter(
       m => m._vnd.v1.direction == "inbound"
     );
-    const lastInbound = recentIinbounds[0];
+    const lastInbound = recentInbounds[0];
     return {
       "Can be called?": message.from.startsWith("27") ? "Yes" : "No",
       "Last Called At": lastCall

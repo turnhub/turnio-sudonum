@@ -44,6 +44,7 @@ const app = new TurnIntegration(process.env.SECRET)
             }
           },
           function(err, httpResponse, body) {
+            debug({ err, httpResponse, body });
             debug(`Call to ${message.from} initiated`);
             // callLog[chat.owner] = moment.now();
           }

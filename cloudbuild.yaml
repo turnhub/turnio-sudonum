@@ -1,0 +1,11 @@
+steps:
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - functions
+      - deploy
+      - --trigger-http
+      - --source=.
+      - --entry-point=app
+      - --runtime=nodejs10
+      - --region=europe-west1
+      - turnio-sudonum

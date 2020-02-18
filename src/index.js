@@ -33,7 +33,6 @@ const app = new TurnIntegration(process.env.SECRET)
           caller_number: process.env.OPERATOR_NUMBER,
           destination_number: message.from,
           caller_clid: message.from,
-          // features: "group_pickup_hunt",
           destination_clid: process.env.CALL_FROM
         };
         request.post(

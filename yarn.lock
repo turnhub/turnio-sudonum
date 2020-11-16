@@ -724,10 +724,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@turnio/integration@1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@turnio/integration/-/integration-1.2.3.tgz#01b496280e8e45379b15ba56de583b275019ee10"
-  integrity sha512-9g5LnSzJF86zPSdzHkblZe1LEL1Wpr1hS0QCRygWhy1KqIw49qHtdZkoZs84x8MqEJjvoBBWltOqtOYceFgeNw==
+"@turnio/integration@~1.3":
+  version "1.3.11"
+  resolved "https://registry.yarnpkg.com/@turnio/integration/-/integration-1.3.11.tgz#b9918de8f2e4e4709948bab1959c12e73a10069c"
+  integrity sha512-i/IshAMmY8CRDSZxD0L7Jztg/9iUDJP7SWIqZLojJTe8ihlNZztk/tyH1RUZ3C6NEQx32AuIj4JA6AkhTocT9A==
   dependencies:
     body-parser "^1.19.0"
     debug "^4.1.1"

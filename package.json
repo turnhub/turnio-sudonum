@@ -1,0 +1,25 @@
+{
+  "name": "@turnio/sudonum",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "repository": "git@github.com:turnhub/turnio-sudonum.git",
+  "author": "Simon de Haan <simon@turn.io>",
+  "scripts": {
+    "preserve": "yarn build",
+    "serve": "node lib/server.js",
+    "build": "babel --delete-dir-on-start src -d lib",
+    "prepare": "yarn build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@turnio/integration": "~1.3",
+    "debug": "^4.1.1",
+    "moment": "^2.24.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4"
+  }
+}
